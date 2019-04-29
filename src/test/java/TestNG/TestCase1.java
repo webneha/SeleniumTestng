@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-@Test(suiteName = "Sample")
+@Test(priority =1 , groups = "functional")
 public class TestCase1 {
 	WebDriver driver;
 	@Test(priority = 1)
@@ -18,9 +18,9 @@ public class TestCase1 {
 		driver.get("https://accounts.google.com/ServiceLogin");
 
 	}
-	@Test(priority = 2)
+	@Test(priority = 2 , groups = {"functional","smoke"})
 	public void ValidateTitle() {
-		String expected_Title = "Sign in – Google accounts1";
+		String expected_Title = "Sign in – Google accounts";
 		String actual_Title = driver.getTitle();
 		SoftAssert softassert = new SoftAssert();
 		softassert.assertEquals(actual_Title, expected_Title);

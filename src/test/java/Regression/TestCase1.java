@@ -1,25 +1,24 @@
-package TestNG;
-import static org.testng.Assert.fail;
+package Regression;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-
-public class TestCase2 {
+@Test(priority =1, groups = "bvt")
+public class TestCase1 {
 	WebDriver driver;
-	@Test(priority = 1, groups = {"functional","smoke"})
+	@Test(priority = 1)
 	public void doLogin() {
 		WebDriverManager.chromedriver().setup();
 		 driver = new ChromeDriver();
 		driver.get("https://accounts.google.com/ServiceLogin");
-       // Assert.fail("user not logged in successfully");
 
 	}
-	@Test(priority = 2, dependsOnMethods = "doLogin", groups = "smoke")
+	@Test(priority = 2,groups = {"functional","smoke"})
 	public void ValidateTitle() {
 		String expected_Title = "Sign in – Google accounts";
 		String actual_Title = driver.getTitle();
@@ -30,6 +29,11 @@ public class TestCase2 {
 		System.out.println("Title not matched");
 		softassert.assertAll();
 		
+	}
+	
+	@AfterTest
+	public void closeee() {
+		driver.close();
 	}
 	
 }
