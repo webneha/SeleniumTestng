@@ -3,12 +3,12 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="TestCase2">
+      <class name="TestNG.TestCase2">
         <methods>
           <include name="doLogin"/>
           <include name="ValidateTitle"/>
         </methods>
-      </class> <!-- TestCase2 -->
+      </class> <!-- TestNG.TestCase2 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -9,7 +9,7 @@ import org.testng.asserts.SoftAssert;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 @Test(priority =1 , groups = "functional")
-public class TestCase1 {
+public class TestCase1 extends BaseTest {
 	WebDriver driver;
 	@Test(priority = 1)
 	public void doLogin() {

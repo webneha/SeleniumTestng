@@ -1,14 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Functional Suite]">
+  <listeners>
+    <listener class-name="CustomListeners.Listeners"/>
+  </listeners>
+  <test thread-count="5" name="Login Test(failed)">
+    <classes>
+      <class name="TestNG.TestCase1">
+        <methods>
+          <include name="ValidateTitle"/>
+          <include name="closeee"/>
+          <include name="setup"/>
+          <include name="quit"/>
+        </methods>
+      </class> <!-- TestNG.TestCase1 -->
+    </classes>
+  </test> <!-- Login Test(failed) -->
   <test thread-count="5" name="Validate Title(failed)">
     <classes>
       <class name="TestNG.TestCase2">
         <methods>
+          <include name="setup"/>
           <include name="doLogin"/>
+          <include name="quit"/>
           <include name="ValidateTitle"/>
         </methods>
       </class> <!-- TestNG.TestCase2 -->
     </classes>
   </test> <!-- Validate Title(failed) -->
+  <test thread-count="5" name="failing Testcase(failed)">
+    <classes>
+      <class name="TestNG.TestFailure">
+        <methods>
+          <include name="setup"/>
+          <include name="doLogin"/>
+          <include name="quit"/>
+        </methods>
+      </class> <!-- TestNG.TestFailure -->
+    </classes>
+  </test> <!-- failing Testcase(failed) -->
 </suite> <!-- Failed suite [Functional Suite] -->
